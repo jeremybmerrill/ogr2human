@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+def openlink(link)
+  if RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/
+    system "start #{link}"
+  elsif RbConfig::CONFIG['host_os'] =~ /darwin/
+    system "open #{link}"
+  elsif RbConfig::CONFIG['host_os'] =~ /linux|bsd/
+    system "xdg-open #{link}"
+  end
+end
+
+if ARGV[0].downcase.include?("shrek")
+  openlink "http://www.fanpop.com/images/polls/783_2_full.jpg"
+elsif ARGV[0].downcase.include?("fiona")
+  openlink "http://www.beautybythebeast.com/wp-content/uploads/2008/12/fiona.jpg"
+else
+end

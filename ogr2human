@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+def openlink(link)
+  if RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/
+    system "start #{link}"
+  elsif RbConfig::CONFIG['host_os'] =~ /darwin/
+    system "open #{link}"
+  elsif RbConfig::CONFIG['host_os'] =~ /linux|bsd/
+    system "xdg-open #{link}"
+  end
+end
+
+if ARGV[0].downcase.include?("shrek")
+  openlink "http://91.207.61.14/m/uploads/v_p_images/2004/01/2971_9_screenshot.png"
+elsif ARGV[0].downcase.include?("fiona")
+  openlink "http://assets.gcstatic.com/u/apps/asset_manager/uploaded/2011/38/kimberley-walsh-as-princess-fiona-1316773401.jpg"
+else
+end
